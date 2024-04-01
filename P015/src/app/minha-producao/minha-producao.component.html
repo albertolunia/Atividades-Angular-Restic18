@@ -1,0 +1,25 @@
+<div class="item">
+  <div class="filtros cabecalho">
+    <span>Animal</span>
+    <span >Tag Pai</span>
+    <span>Tag Mãe</span>
+    <span>Nasc.</span>
+    <span>Sexo</span>
+    <span>Status</span>
+    <span>Saida</span>
+  </div>
+  <div *ngIf="suinos.length > 0; else noData">
+    <div *ngFor="let suino of suinos" class="filtros">
+      <span>{{ suino.idPig }}</span>
+      <span>{{ suino.fatherEarTag }}</span>
+      <span>{{ suino.motherEarTag }}</span>
+      <span>{{ suino.dateOfBirth }}</span>
+      <span>{{ suino.gender }}</span>
+      <span>{{ suino.status }}</span>
+      <span>{{ suino.dateOfDeparture }}</span>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>Nenhum suíno encontrado.</p>
+  </ng-template>
+</div>

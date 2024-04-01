@@ -14,27 +14,28 @@ export class Usuario {
   }
 }
 
-export interface IUser{
+export interface IUser {
   name: string;
   nameFarm: string;
   email: string;
   Piggers?: IPig[];
-
-
-
 }
 
-export interface IPig{
+export interface IPig {
+  idPig?: string;
   fatherEarTag: string;
   motherEarTag: string;
   dateOfBirth: string;
   dateOfDeparture: string;
   status: string;
-  gender: 'M'|'F';
-  weights?: IWeights[]
+  gender: 'M' | 'F';
+  idUser: string;
+  weights?: IWeights[];
 }
 
-export interface IWeights{
+export interface IWeights {
+  id?: string;
+  idPig: string;
   weight: number;
   date: string;
 }
