@@ -16,11 +16,15 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 .max-width {
   max-width: 1000px;
   width: 1000px;
   margin: 0 auto;
+}
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }

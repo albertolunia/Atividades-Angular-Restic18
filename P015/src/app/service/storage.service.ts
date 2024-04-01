@@ -2,7 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPig, IUser, IWeights } from '../model/usuario.model';
 import { AuthService } from './auth.service';
-import { map, of } from 'rxjs';
+import {
+  EMPTY,
+  Observable,
+  catchError,
+  map,
+  of,
+  switchMap,
+  take,
+  throwError,
+} from 'rxjs';
+import { ISessao } from '../model/sessao.model';
 
 @Injectable({
   providedIn: 'root',
@@ -54,7 +64,7 @@ export class StorageService {
       console.log(user);
       return this.http
         .post(
-          `https://residencia-tic-default-rtdb.firebaseio.com/users/${user.id}.json`,
+          `https://residencia-tic-default-rtdb.firebaseio.com/suinos.json`,
           cadastro
         )
         .subscribe(
@@ -70,23 +80,62 @@ export class StorageService {
     return console.log('Usuário não autenticado');
   }
 
-  addPesoSuino(pigId: string, newWeight: IWeights) {
+  listarSuinos(): Observable<{ [key: string]: IPig }> {
     const userData = localStorage.getItem('userData');
 
     if (userData) {
       const user = JSON.parse(userData);
+      return this.http.get<{ [key: string]: IPig }>(
+        `https://residencia-tic-default-rtdb.firebaseio.com/suinos.json`
+      );
+    }
 
+    console.log('Usuário não autenticado');
+    return of({});
+  }
+
+  listarPesosSuino(idPig: string): Observable<IWeights[]> {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http
+        .get<{ [key: string]: IWeights }>(
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos.json`
+        )
+        .pipe(
+          map((pesosObj) => {
+            const pesosArray: IWeights[] = [];
+            for (const key in pesosObj) {
+              if (pesosObj[key].idPig === idPig) {
+                pesosArray.push({ ...pesosObj[key], id: key });
+              }
+            }
+            return pesosArray;
+          })
+        );
+    }
+
+    console.log('Usuário não autenticado');
+    return of([]);
+  }
+
+  addPesoToSuino(userId: string, peso: IWeights) {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
       return this.http
         .post(
-          `https://residencia-tic-default-rtdb.firebaseio.com/users/${user.id}/pigs/${pigId}/weights.json`,
-          newWeight
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos.json`,
+          peso
         )
         .subscribe(
           (response) => {
-            console.log('Peso adicionado com sucesso:', response);
+            console.log('Resposta da solicitação:', response);
           },
           (error) => {
-            console.error('Erro ao adicionar peso:', error);
+            console.error('Erro na solicitação:', error);
           }
         );
     }
@@ -94,50 +143,66 @@ export class StorageService {
     return console.log('Usuário não autenticado');
   }
 
-  listarSuinos() {
+  addCadastroSessao(cadastro: ISessao) {
     const userData = localStorage.getItem('userData');
 
     if (userData) {
       const user = JSON.parse(userData);
       return this.http
-        .get<IPig>(
-          `https://residencia-tic-default-rtdb.firebaseio.com/users/${user.id}.json`
+        .post(
+          `https://residencia-tic-default-rtdb.firebaseio.com/sessoes.json`,
+          cadastro
         )
-        .pipe(
-          map((responseData) => {
-            return {
-              dateOfBirth: responseData.dateOfBirth,
-              dateOfDeparture: responseData.dateOfDeparture,
-              fatherEarTag: responseData.fatherEarTag,
-              gender: responseData.gender,
-              motherEarTag: responseData.motherEarTag,
-              status: responseData.status,
-              weights: responseData.weights,
-            };
-          })
+        .subscribe(
+          (response) => {
+            console.log('Resposta da solicitação:', response);
+          },
+          (error) => {
+            console.error('Erro na solicitação:', error);
+          }
         );
     }
 
-    console.log('Usuário não autenticado');
-    return of(null);
+    return console.log('Usuário não autenticado');
   }
 
-  listarPesosSuino(pigId: string) {
+  listarSessoes(): Observable<{ [key: string]: ISessao }> {
     const userData = localStorage.getItem('userData');
 
     if (userData) {
       const user = JSON.parse(userData);
+      return this.http.get<{ [key: string]: ISessao }>(
+        `https://residencia-tic-default-rtdb.firebaseio.com/sessoes.json`
+      );
+    }
+
+    console.log('Usuário não autenticado');
+    return of({});
+  }
+
+  atualizarSessao(sessao: ISessao) {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      const id = sessao.id;
+      const sessaoSemId = {
+        ...sessao,
+        id: null
+      }
+
       return this.http
-        .get<IWeights>(
-          `https://residencia-tic-default-rtdb.firebaseio.com/users/${user.id}/pigs/${pigId}/weights.json`
+        .put(
+          `https://residencia-tic-default-rtdb.firebaseio.com/sessoes/${id}.json`,
+          sessaoSemId
         )
-        .pipe(
-          map((responseData) => {
-            return {
-              date: responseData.date,
-              weight: responseData.weight,
-            };
-          })
+        .subscribe(
+          (response) => {
+            console.log('Resposta da solicitação:', response);
+          },
+          (error) => {
+            console.error('Erro na solicitação:', error);
+          }
         );
     }
 
