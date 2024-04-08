@@ -1,38 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastroComponent } from './modulo-cadastro/cadastro/cadastro.component';
-import { LoginComponent } from './modulo-cadastro/login/login.component';
-import { HomeComponent } from './modulo-cadastro/home/home.component';
-import { DashboardComponent } from './modulo-dashboard/dashboard/dashboard.component';
 import { AuthGuard } from './guards/authorization.guard';
-import { MinhaProducaoComponent } from './modulo-dashboard/minha-producao/minha-producao.component';
-import { SessaoComponent } from './modulo-manejo/sessao/sessao.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: [
-      { path: 'login', component: LoginComponent },
-      { path: '', component: CadastroComponent },
-    ],
+    loadChildren: () =>
+      import('./modulo-cadastro/modulo-cadastro.module').then(
+        (m) => m.ModuloCadastroModule
+      ),
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
+    loadChildren: () =>
+      import('./modulo-dashboard/modulo-dashboard.module').then(
+        (m) => m.ModuloDashboardModule
+      ),
     canActivate: [AuthGuard],
   },
   {
     path: 'dashboard/manejo',
-    component: SessaoComponent,
+    loadChildren: () =>
+      import('./modulo-manejo/modulo-manejo.module').then(
+        (m) => m.ModuloManejoModule
+      ),
     canActivate: [AuthGuard],
   },
-  {
-    path: 'teste',
-    component: MinhaProducaoComponent,
-    canActivate: [AuthGuard],
-  },
-  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

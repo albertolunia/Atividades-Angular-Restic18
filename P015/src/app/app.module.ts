@@ -20,19 +20,9 @@ import { FooterComponent } from './modulo-cadastro/footer/footer.component';
 import { SessaoComponent } from './modulo-manejo/sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
-  declarations: [AppComponent, SessaoComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    MatIconModule,
-    NgMultiSelectDropDownModule.forRoot(),
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
