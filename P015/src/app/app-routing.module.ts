@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastroComponent } from './ModuloCadastro/cadastro/cadastro.component';
-import { LoginComponent } from './ModuloCadastro/login/login.component';
-import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './ModuloDashboard/dashboard/dashboard.component';
+import { CadastroComponent } from './modulo-cadastro/cadastro/cadastro.component';
+import { LoginComponent } from './modulo-cadastro/login/login.component';
+import { HomeComponent } from './modulo-cadastro/home/home.component';
+import { DashboardComponent } from './modulo-dashboard/dashboard/dashboard.component';
 import { AuthGuard } from './guards/authorization.guard';
-import { MinhaProducaoComponent } from './ModuloDashboard/minha-producao/minha-producao.component';
-import { SessaoComponent } from './ModuloManejo/sessao/sessao.component';
+import { MinhaProducaoComponent } from './modulo-dashboard/minha-producao/minha-producao.component';
+import { SessaoComponent } from './modulo-manejo/sessao/sessao.component';
 
 const routes: Routes = [
   {
