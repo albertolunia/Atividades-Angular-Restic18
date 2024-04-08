@@ -5,17 +5,17 @@ import { ModuloCadastroRoutingModule } from './modulo-cadastro-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from '../modulo-dashboard/header/header.component';
+import { FooterComponent } from '../modulo-dashboard/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    CadastroComponent,
-    LoginComponent,
-    HeaderComponent,
-    FooterComponent,
+  declarations: [HomeComponent, CadastroComponent, LoginComponent],
+  imports: [
+    CommonModule,
+    ModuloCadastroRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  imports: [CommonModule, ModuloCadastroRoutingModule],
 })
 export class ModuloCadastroModule {}

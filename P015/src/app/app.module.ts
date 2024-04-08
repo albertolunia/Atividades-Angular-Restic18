@@ -15,8 +15,8 @@ import { GraficoComponent } from './modulo-dashboard/grafico/grafico.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HistoricoPesoComponent } from './modulo-dashboard/historico-peso/historico-peso.component';
 import { MinhaProducaoComponent } from './modulo-dashboard/minha-producao/minha-producao.component';
-import { HeaderComponent } from './modulo-cadastro/header/header.component';
-import { FooterComponent } from './modulo-cadastro/footer/footer.component';
+import { HeaderComponent } from './modulo-dashboard/header/header.component';
+import { FooterComponent } from './modulo-dashboard/footer/footer.component';
 import { SessaoComponent } from './modulo-manejo/sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({

@@ -7,6 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraficoComponent } from './grafico/grafico.component';
 import { HistoricoPesoComponent } from './historico-peso/historico-peso.component';
 import { MinhaProducaoComponent } from './minha-producao/minha-producao.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { MinhaProducaoComponent } from './minha-producao/minha-producao.componen
     GraficoComponent,
     HistoricoPesoComponent,
     MinhaProducaoComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
-  imports: [CommonModule, ModuloDashboardRoutingModule],
+  imports: [CommonModule, ModuloDashboardRoutingModule, ReactiveFormsModule],
+  exports: [HeaderComponent, FooterComponent],
 })
 export class ModuloDashboardModule {}
