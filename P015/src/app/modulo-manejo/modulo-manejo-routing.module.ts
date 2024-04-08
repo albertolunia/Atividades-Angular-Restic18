@@ -4,7 +4,7 @@ import { SessaoComponent } from './sessao/sessao.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard/manejo',
+    path: '',
     component: SessaoComponent,
   },
 ];

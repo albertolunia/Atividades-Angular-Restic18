@@ -21,8 +21,18 @@ import { SessaoComponent } from './modulo-manejo/sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    MatIconModule,
+    NgMultiSelectDropDownModule.forRoot(),
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
