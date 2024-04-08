@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { StorageService } from '../service/storage.service';
-import { IPig, IWeights } from '../model/usuario.model';
+import { StorageService } from '../../service/storage.service';
+import { IPig, IWeights } from '../../model/usuario.model';
 
 @Component({
   selector: 'app-cadastro-suino',

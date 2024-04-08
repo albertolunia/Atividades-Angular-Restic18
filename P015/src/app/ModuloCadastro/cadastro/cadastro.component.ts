@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { StorageService } from '../service/storage.service';
-import { AuthService } from '../service/auth.service';
-import { IUser } from '../model/usuario.model';
+import { StorageService } from '../../service/storage.service';
+import { AuthService } from '../../service/auth.service';
+import { IUser } from '../../model/usuario.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,7 +13,7 @@ export class CadastroComponent implements OnInit {
   formsCadastro: FormGroup;
   bufferPassWord: string = '';
   openAlert: boolean = false;
-  userFormat : IUser = {} as IUser;
+  userFormat: IUser = {} as IUser;
   constructor(
     private service: StorageService,
     private authService: AuthService
@@ -49,12 +49,12 @@ export class CadastroComponent implements OnInit {
       this.userFormat.name = this.formsCadastro.value.name;
       this.userFormat.email = this.formsCadastro.value.email;
       this.userFormat.nameFarm = this.formsCadastro.value.nameFarm;
-     
+
       this.service.cadastrar(this.userFormat);
 
       this.authService.signUp(login, senha).subscribe((responseData) => {});
 
-       this.formsCadastro.reset();
+      this.formsCadastro.reset();
     } else {
       this.openAlert = true;
     }
