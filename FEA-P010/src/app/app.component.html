@@ -1,0 +1,12 @@
+<div class="container">
+  <app-itens-list
+    [itens]="itens"
+    (addToCartEvent)="onAddToCart($event)"
+  ></app-itens-list>
+  <div class="cart">
+    <div class="button-cart">
+      <button (click)="toggleCart()">Mostrar carrinho</button>
+    </div>
+    <app-cart *ngIf="showCart" [listaDeItens]="itens"></app-cart>
+  </div>
+</div>

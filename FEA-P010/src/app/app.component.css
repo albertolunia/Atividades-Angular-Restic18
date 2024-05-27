@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto 150px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-cart{
+    text-align: right;
+}
+  
+button:hover {
+    background-color: #1e7e34;
+}

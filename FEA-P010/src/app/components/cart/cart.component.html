@@ -1,0 +1,11 @@
+<h1>Carrinho</h1>
+<div class="car-list">
+  <app-cart-item
+    *ngFor="let item of listaDeItens"
+    [item]="item"
+    (removeFromCartEvent)="removeItem($event)"
+  ></app-cart-item>
+</div>
+<div>
+  <h2>Total: {{ subtotal() | currency : "BRL" }}</h2>
+</div>

@@ -1,0 +1,15 @@
+.item-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+h1{
+    margin-bottom: 20px;
+    text-align: left;
+    color: #333;
+    font-size: 2em;
+}
