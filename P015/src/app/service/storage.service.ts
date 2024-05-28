@@ -81,6 +81,12 @@ export class StorageService {
     );
   }
 
+  deleteProject(projectId: string): Observable<void> {
+    return this.http.delete<void>(
+      `https://promanage-2ca1d-default-rtdb.firebaseio.com/projects/${projectId}.json`
+    );
+  }
+
   listarUsuarios() {
     return this.http
       .get<any>('https://residencia-tic-default-rtdb.firebaseio.com/users.json')

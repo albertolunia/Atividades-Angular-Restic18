@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IProject } from '../../model/project.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { StorageService } from '../../service/storage.service';
 
 @Component({
   selector: 'app-edit-project-dialog',
@@ -14,7 +15,8 @@ export class EditProjectDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<EditProjectDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { projeto: IProject },
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private storageService: StorageService
   ) {
     this.editProjectForm = this.fb.group({
       projectName: [data.projeto.projectName],
@@ -31,7 +33,11 @@ export class EditProjectDialogComponent {
       ...this.data.projeto,
       ...this.editProjectForm.value,
     };
-    this.dialogRef.close(updatedProject);
+    this.dialogRef.close({ action: 'save', project: updatedProject });
+  }
+
+  onDelete(): void {
+    this.dialogRef.close({ action: 'delete', projectId: this.data.projeto.id });
   }
 
   onCancel(): void {

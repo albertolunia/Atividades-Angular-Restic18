@@ -51,15 +51,23 @@ export class MinhaProducaoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Atualize o projeto no Firebase ou em seu serviço aqui
-        this.updateProject(result);
+        if (result.action === 'save') {
+          this.updateProject(result.project);
+        } else if (result.action === 'delete') {
+          this.deleteProject(result.projectId);
+        }
       }
     });
   }
 
   updateProject(updatedProject: IProject): void {
     this.storageService.updateProject(updatedProject).subscribe(() => {
-      // Atualize a lista de projetos após a edição
+      this.ngOnInit();
+    });
+  }
+
+  deleteProject(projectId: string): void {
+    this.storageService.deleteProject(projectId).subscribe(() => {
       this.ngOnInit();
     });
   }
