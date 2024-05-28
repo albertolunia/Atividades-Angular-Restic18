@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IProject } from '../../model/project.model';
 import { StorageService } from '../../service/storage.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-cadastro-projeto',
@@ -26,6 +27,7 @@ export class CadastroProjetoComponent implements OnInit {
     const formValue = this.cadastroForm.value;
     const userData = localStorage.getItem('userData');
     const cadastro: IProject = {
+      id: uuidv4(),
       projectName: formValue.nomeProjeto || '',
       description: formValue.descricaoProjeto || '',
       startDate: formValue.dataInicio || '',

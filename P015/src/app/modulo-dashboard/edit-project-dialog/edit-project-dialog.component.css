@@ -1,0 +1,109 @@
+/* Estilos para o modal */
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-header, .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.modal-footer {
+    gap: 1rem;
+}
+
+.modal-footer button {
+    padding: 0.5rem;
+    background: var(--tertiary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modal-footer button:hover {
+    background: var(--tertiary-color);
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form .form-group label {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-family: "Bebas Neue", sans-serif;
+}
+
+form .form-group small {
+    font-size: 0.8rem;
+    color: red;
+    font-style: italic;
+}
+
+form .form-group input, 
+form .form-group textarea, 
+form .form-group select {
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    background: transparent;
+}
+
+form .form-group input:focus, 
+form .form-group textarea:focus, 
+form .form-group select:focus {
+    outline: none;
+    border-bottom: 2px solid var(--tertiary-color);
+}
+
+form .form-group input.ng-invalid.ng-touched, 
+form .form-group textarea.ng-invalid.ng-touched, 
+form .form-group select.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+form .form-group input.ng-valid.ng-touched, 
+form .form-group textarea.ng-valid.ng-touched, 
+form .form-group select.ng-valid.ng-touched {
+    border-color: rgb(43, 189, 43);
+}
+
+form .form-group input.ng-valid.ng-touched + label, 
+form .form-group textarea.ng-valid.ng-touched + label, 
+form .form-group select.ng-valid.ng-touched + label {
+    color: green;
+}
+
+form .form-group textarea {
+    resize: none;
+}

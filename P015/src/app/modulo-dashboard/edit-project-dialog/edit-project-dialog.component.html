@@ -1,0 +1,40 @@
+<div class="modal-container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Editar Projeto</h1>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editProjectForm">
+          <div class="form-group">
+            <label for="projectName">Nome do Projeto</label>
+            <input id="projectName" matInput formControlName="projectName">
+          </div>
+          <div class="form-group">
+            <label for="description">Descrição</label>
+            <textarea id="description" matInput formControlName="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="startDate">Data de Início</label>
+            <input id="startDate" matInput formControlName="startDate" type="date">
+          </div>
+          <div class="form-group">
+            <label for="endDate">Data de Término</label>
+            <input id="endDate" matInput formControlName="endDate" type="date">
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <input id="status" matInput formControlName="status">
+          </div>
+          <div class="form-group">
+            <label for="responsible">Responsável</label>
+            <input id="responsible" matInput formControlName="responsible">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button mat-button (click)="onCancel()">Cancelar</button>
+        <button mat-button color="primary" (click)="onSave()">Salvar</button>
+      </div>
+    </div>
+  </div>
+  

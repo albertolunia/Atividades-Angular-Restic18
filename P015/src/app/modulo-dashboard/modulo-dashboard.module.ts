@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CadastroProjetoComponent } from './cadastro-projeto/cadastro-projeto.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { CadastroProjetoComponent } from './cadastro-projeto/cadastro-projeto.co
     HeaderComponent,
     CadastroProjetoComponent,
   ],
-  imports: [CommonModule, ModuloDashboardRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ModuloDashboardRoutingModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+  ],
   exports: [HeaderComponent, FooterComponent],
 })
 export class ModuloDashboardModule {}

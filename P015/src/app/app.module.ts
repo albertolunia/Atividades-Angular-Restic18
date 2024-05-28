@@ -17,8 +17,11 @@ import { HeaderComponent } from './modulo-dashboard/header/header.component';
 import { FooterComponent } from './modulo-dashboard/footer/footer.component';
 import { SessaoComponent } from './modulo-manejo/sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { EditProjectDialogComponent } from './modulo-dashboard/edit-project-dialog/edit-project-dialog.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, EditProjectDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,10 +29,13 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FormsModule,
     HttpClientModule,
     MatIconModule,
+    MatFormField,
+    MatFormFieldModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })

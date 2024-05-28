@@ -74,6 +74,12 @@ export class StorageService {
     console.log('Usuário não autenticado');
     return of({});
   }
+  updateProject(project: IProject): Observable<IProject> {
+    return this.http.put<IProject>(
+      `https://promanage-2ca1d-default-rtdb.firebaseio.com/projects/${project.id}.json`,
+      project
+    );
+  }
 
   listarUsuarios() {
     return this.http

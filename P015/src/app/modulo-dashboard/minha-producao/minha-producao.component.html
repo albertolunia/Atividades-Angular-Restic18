@@ -8,7 +8,7 @@
     <span>Responsável</span>
   </div>
   <div *ngIf="projetos.length > 0; else noData">
-    <div *ngFor="let projeto of projetos" class="filtros">
+    <div *ngFor="let projeto of projetos" class="filtros" (click)="openEditDialog(projeto)">
       <span>{{ projeto.projectName }}</span>
       <span>{{ projeto.description }}</span>
       <span>{{ projeto.startDate }}</span>

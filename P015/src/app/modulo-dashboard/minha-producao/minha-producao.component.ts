@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { IProject } from '../../model/project.model';
 import { switchMap } from 'rxjs';
 import { StorageService } from '../../service/storage.service';
+import { EditProjectDialogComponent } from '../edit-project-dialog/edit-project-dialog.component';
 
 @Component({
   selector: 'app-minha-producao',
@@ -11,7 +13,10 @@ import { StorageService } from '../../service/storage.service';
 export class MinhaProducaoComponent implements OnInit {
   projetos: IProject[] = [];
 
-  constructor(private storageService: StorageService) {}
+  constructor(
+    private storageService: StorageService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('userData') || '{}');
@@ -36,5 +41,26 @@ export class MinhaProducaoComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  openEditDialog(projeto: IProject): void {
+    const dialogRef = this.dialog.open(EditProjectDialogComponent, {
+      width: '400px',
+      data: { projeto },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Atualize o projeto no Firebase ou em seu serviço aqui
+        this.updateProject(result);
+      }
+    });
+  }
+
+  updateProject(updatedProject: IProject): void {
+    this.storageService.updateProject(updatedProject).subscribe(() => {
+      // Atualize a lista de projetos após a edição
+      this.ngOnInit();
+    });
   }
 }
