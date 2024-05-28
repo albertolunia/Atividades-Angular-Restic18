@@ -43,20 +43,18 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    if (this.formsCadastro.valid) {
-      var login = this.formsCadastro.value.email;
-      var senha = this.formsCadastro.value.password;
-      this.userFormat.name = this.formsCadastro.value.name;
-      this.userFormat.email = this.formsCadastro.value.email;
+    console.log(this.formsCadastro);
 
-      this.service.cadastrar(this.userFormat);
+    var login = this.formsCadastro.value.email;
+    var senha = this.formsCadastro.value.password;
+    this.userFormat.name = this.formsCadastro.value.name;
+    this.userFormat.email = this.formsCadastro.value.email;
 
-      this.authService.signUp(login, senha).subscribe((responseData) => {});
+    this.service.cadastrar(this.userFormat);
 
-      this.formsCadastro.reset();
-    } else {
-      this.openAlert = true;
-    }
+    this.authService.signUp(login, senha).subscribe((responseData) => {});
+
+    this.formsCadastro.reset();
   }
 
   cadastrar() {
