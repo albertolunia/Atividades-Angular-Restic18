@@ -35,11 +35,11 @@ form .form-group input.ng-valid.ng-touched {
 }
 
 .containerCadastro .banner  .square2{
-    background: var(--primary-color);
+    background: rgb(87, 87, 87);
 }
 
 .containerCadastro .banner  .square3{
-    background: var(--tertiary-color);
+    background: #b11a1a;
 }
 
 .containerCadastro .banner  .square1{
@@ -69,7 +69,7 @@ form .form-group input.ng-valid.ng-touched {
 }
 .containerCadastro .slogan .marca h1{
     font-size: 4rem;
-    color: var(--primary-color);
+    color: rgb(87, 87, 87);
     margin: 0;
     padding: 0;
 }   
@@ -80,7 +80,7 @@ form .form-group input.ng-valid.ng-touched {
 }
 .containerCadastro .slogan .marca span{ 
     font-size: 0.8rem;
-    color: var(--primary-color);
+    color: rgb(87, 87, 87);
 }
 .containerCadastro .slogan .benefits{
     display: flex;
@@ -96,7 +96,7 @@ form .form-group input.ng-valid.ng-touched {
     width: 20rem;
     font-size: 1.2rem;
     text-align: end;
-    color: var(--primary-color);
+    color: rgb(87, 87, 87);
     font-family: "Bebas Neue", sans-serif;
 } */
  .formCadastro{
@@ -124,7 +124,7 @@ form .form-group{
 }
 form .form-group label{
     font-size: 1rem;
-    color: var(--primary-color);
+    color: #b11a1a;
     font-family: "Bebas Neue", sans-serif;
 
 }
@@ -136,17 +136,17 @@ form .form-group small{
 form .form-group input{
     padding: 0.5rem;
     border: none;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 2px solid #b11a1a;
 }
 
 form .form-group input:focus{
     outline: none;
-    border-bottom: 2px solid var(--tertiary-color);
+    border-bottom: 2px solid #b11a1a;
 }
 
 form button{
     padding: 0.5rem;
-    background: var(--tertiary-color);
+    background: #b11a1a;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -155,7 +155,7 @@ form button{
 }
 
 .formCadastro form button:hover{
-    background: var(--tertiary-color);
+    background: #b11a1a;
 }
 
 .formCadastro {
@@ -167,9 +167,9 @@ form button{
 }
 .formCadastro h1{
     font-size: 2rem;
-    color: var(--primary-color);
+    color: #b11a1a;
 }
 
 .containerCadastro .rotaLogin{
-    color: var(--primary-color);
+    color: #b11a1a;
 }

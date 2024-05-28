@@ -1,9 +1,9 @@
 <app-header/>
 <div class="containerDasboard">
   <div class="secao suinoplus max-width" id="suino">
-    <p  class="topico">Suino+</p>
+    <p  class="topico">Project+</p>
     <div class="item">
-      <app-cadastro-suino />
+      <app-cadastro-projeto />
     </div>
   </div>
 
@@ -13,29 +13,5 @@
       <app-minha-producao></app-minha-producao>
     </div>
   </div>
-  <div class="secao grafico">
-    <div class="acompanhamento max-width">
-      <p class="topico" id="grafico">Acompanhamento</p>
-
-      <label for="busca" class="busca">
-        <input
-          type="text"
-          id="busca"
-          placeholder="informe o brinco do animal"
-        />
-        <img src="./assets/icons/search.png" alt="" />
-      </label>
-
-      <div class="results">
-        <div class="item desenho">
-          <app-grafico />
-        </div>
-        <div class="item peso">
-          <app-historico-peso />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="secao historicoPeso"></div>
 </div>
 <app-footer/>

@@ -26,9 +26,11 @@
 .suinoplus .item {
   width: 70%;
   border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
   padding: 40px;
-  background: var(--backound-color);
+  background: #f0f0f0;
 }
 .minhaProducao {
   padding: 20px 0px 30px 0px;

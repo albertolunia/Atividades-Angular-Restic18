@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     height: 50vh;
-    background: var(--backound-color);
+    background: #ffd7f0;
 
 }
 
@@ -21,19 +21,19 @@
     align-items: center;
 }
 .containerCadastro .banner  .square4{
-    background: var(--secondary-color);
+    background: #bae;
 }
 
 .containerCadastro .banner  .square2{
-    background: var(--primary-color);
+    background: #b11a1a;
 }
 
 .containerCadastro .banner  .square3{
-    background: var(--tertiary-color);
+    background: #b11a1a;
 }
 
 .containerCadastro .banner  .square1{
-    background: var(--quaternary-color);
+    background: #bae;
 }
 .containerCadastro .banner  img{
     height: 70%;
@@ -41,7 +41,7 @@
 .containerBanner{
     height: 100vh;
     max-height: 100vh;
-    background: var(--backound-color);
+    background: #ffd7f0;
 
 }
 .containerCadastro .slogan{
@@ -60,7 +60,7 @@
 }
 .containerCadastro .slogan .marca h1{
     font-size: 4rem;
-    color: var(--primary-color);
+    color: #b11a1a;
     margin: 0;
     padding: 0;
 }   
@@ -71,7 +71,7 @@
 }
 .containerCadastro .slogan .marca span{ 
     font-size: 0.8rem;
-    color: var(--primary-color);
+    color: #b11a1a;
 }
 .containerCadastro .slogan .benefits{
     display: flex;
@@ -88,6 +88,6 @@
     width: 20rem;
     font-size: 1.2rem;
     text-align: end;
-    color: var(--primary-color);
+    color: #b11a1a;
     font-family: "Bebas Neue", sans-serif;
 }

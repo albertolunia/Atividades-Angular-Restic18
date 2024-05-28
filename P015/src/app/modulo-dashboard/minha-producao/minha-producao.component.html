@@ -1,25 +1,23 @@
 <div class="item">
   <div class="filtros cabecalho">
-    <span>Animal</span>
-    <span >Tag Pai</span>
-    <span>Tag Mãe</span>
-    <span>Nasc.</span>
-    <span>Sexo</span>
+    <span>Nome do Projeto</span>
+    <span>Descrição</span>
+    <span>Data de Início</span>
+    <span>Data de Término</span>
     <span>Status</span>
-    <span>Saida</span>
+    <span>Responsável</span>
   </div>
-  <div *ngIf="suinos.length > 0; else noData">
-    <div *ngFor="let suino of suinos" class="filtros">
-      <span>{{ suino.idPig }}</span>
-      <span>{{ suino.fatherEarTag }}</span>
-      <span>{{ suino.motherEarTag }}</span>
-      <span>{{ suino.dateOfBirth }}</span>
-      <span>{{ suino.gender }}</span>
-      <span>{{ suino.status }}</span>
-      <span>{{ suino.dateOfDeparture }}</span>
+  <div *ngIf="projetos.length > 0; else noData">
+    <div *ngFor="let projeto of projetos" class="filtros">
+      <span>{{ projeto.projectName }}</span>
+      <span>{{ projeto.description }}</span>
+      <span>{{ projeto.startDate }}</span>
+      <span>{{ projeto.endDate }}</span>
+      <span>{{ projeto.status }}</span>
+      <span>{{ projeto.responsible }}</span>
     </div>
   </div>
   <ng-template #noData>
-    <p>Nenhum suíno encontrado.</p>
+    <p>Nenhum projeto encontrado.</p>
   </ng-template>
 </div>

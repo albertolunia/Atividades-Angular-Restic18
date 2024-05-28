@@ -1,0 +1,67 @@
+<div class="containerCadastro">
+    <div class="formCadastro">
+      <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+        <div class="group">
+          <div class="form-group">
+            <label for="nomeProjeto">Nome do Projeto</label>
+            <input
+              formControlName="nomeProjeto"
+              placeholder="Nome do Projeto"
+              class="form-control"
+              id="nomeProjeto"
+            />
+          </div>
+          <div class="form-group">
+            <label for="descricaoProjeto">Descrição do Projeto</label>
+            <textarea
+              formControlName="descricaoProjeto"
+              placeholder="Descrição do Projeto"
+              class="form-control"
+              id="descricaoProjeto"
+            ></textarea>
+          </div>
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="dataInicio">Data de Início</label>
+            <input
+              type="date"
+              formControlName="dataInicio"
+              class="form-control"
+              id="dataInicio"
+            />
+          </div>
+          <div class="form-group">
+            <label for="dataFim">Data de Término</label>
+            <input
+              type="date"
+              formControlName="dataFim"
+              class="form-control"
+              id="dataFim"
+            />
+          </div>
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="statusProjeto">Status</label>
+            <select formControlName="statusProjeto" class="form-control" id="statusProjeto">
+              <option value="Em andamento">Em andamento</option>
+              <option value="Concluído">Concluído</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="responsavel">Responsável</label>
+            <input
+              formControlName="responsavel"
+              placeholder="Responsável"
+              class="form-control"
+              id="responsavel"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+      </form>
+    </div>
+  </div>
+  

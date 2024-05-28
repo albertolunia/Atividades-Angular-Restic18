@@ -1,48 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { IProject } from '../../model/project.model';
+import { switchMap } from 'rxjs';
 import { StorageService } from '../../service/storage.service';
-import { IPig, IWeights, Usuario } from '../../model/usuario.model';
-import { forkJoin, of, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-minha-producao',
   templateUrl: './minha-producao.component.html',
-  styleUrl: './minha-producao.component.css',
+  styleUrls: ['./minha-producao.component.css'],
 })
 export class MinhaProducaoComponent implements OnInit {
-  suinos: IPig[] = [];
-  pesos: IWeights[] = [];
+  projetos: IProject[] = [];
 
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    let user = JSON.parse(localStorage.getItem('userData') || '{}');
-    //granti que o user é do tipo Usuario
+    const user = JSON.parse(localStorage.getItem('userData') || '{}');
 
     this.storageService
-      .listarSuinos()
+      .listarProjetos()
       .pipe(
-        switchMap((suinosObj: { [key: string]: IPig }) => {
-          this.suinos = Object.keys(suinosObj).map((key) => {
-            return { ...suinosObj[key], id: key };
+        switchMap((projetosObj: { [key: string]: IProject }) => {
+          this.projetos = Object.keys(projetosObj).map((key) => {
+            return { ...projetosObj[key], id: key };
           });
-          if (user && user.id) {
-            this.suinos = this.suinos.filter((pig) => pig.idUser === user.id);
-          } else {
-            this.suinos = [];
-          }
-          // Cria um array de observables para cada chamada listarPesosSuino
-          const pesosObservables = this.suinos.map((pig) =>
-            pig.idPig
-              ? this.storageService.listarPesosSuino(pig.idPig).pipe(
-                  tap((pesosArray: IWeights[]) => {
-                    pig.weights = pesosArray; // Adicione os pesos ao porco específico
-                  })
-                )
-              : of(null)
-          );
 
-          // Retorna um único observable que emite quando todos os observables em pesosObservables emitem
-          return forkJoin(pesosObservables);
+          if (user && user.id) {
+            this.projetos = this.projetos.filter(
+              (projeto) => projeto.userId === user.id
+            );
+          } else {
+            this.projetos = [];
+          }
+
+          return this.projetos;
         })
       )
       .subscribe();

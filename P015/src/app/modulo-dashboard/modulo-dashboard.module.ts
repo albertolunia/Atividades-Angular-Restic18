@@ -10,6 +10,7 @@ import { MinhaProducaoComponent } from './minha-producao/minha-producao.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { CadastroProjetoComponent } from './cadastro-projeto/cadastro-projeto.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
     MinhaProducaoComponent,
     FooterComponent,
     HeaderComponent,
+    CadastroProjetoComponent,
   ],
   imports: [CommonModule, ModuloDashboardRoutingModule, ReactiveFormsModule],
   exports: [HeaderComponent, FooterComponent],

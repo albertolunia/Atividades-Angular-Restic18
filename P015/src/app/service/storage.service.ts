@@ -13,6 +13,7 @@ import {
   throwError,
 } from 'rxjs';
 import { ISessao } from '../model/sessao.model';
+import { IProject } from '../model/project.model';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,43 @@ export class StorageService {
           console.error('Erro na solicitação:', error);
         }
       );
+  }
+
+  addProject(cadastro: IProject) {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http
+        .post(
+          `https://promanage-2ca1d-default-rtdb.firebaseio.com/projects.json`,
+          cadastro
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta da solicitação:', response);
+          },
+          (error) => {
+            console.error('Erro na solicitação:', error);
+          }
+        );
+    }
+
+    return console.log('Usuário não autenticado');
+  }
+
+  listarProjetos(): Observable<{ [key: string]: IProject }> {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http.get<{ [key: string]: IProject }>(
+        `https://promanage-2ca1d-default-rtdb.firebaseio.com/projects.json`
+      );
+    }
+
+    console.log('Usuário não autenticado');
+    return of({});
   }
 
   listarUsuarios() {
@@ -188,8 +226,8 @@ export class StorageService {
       const id = sessao.id;
       const sessaoSemId = {
         ...sessao,
-        id: null
-      }
+        id: null,
+      };
 
       return this.http
         .put(

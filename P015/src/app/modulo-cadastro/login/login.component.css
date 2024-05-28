@@ -42,12 +42,12 @@ form .form-group input{
 
 form .form-group input:focus{
     outline: none;
-    border-bottom: 2px solid var(--tertiary-color);
+    border-bottom: 2px solid #b11a1a;
 }
 
 form button{
     padding: 0.5rem;
-    background: var(--tertiary-color);
+    background: #b11a1a;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -56,7 +56,7 @@ form button{
 }
 
 .formCadastro form button:hover{
-    background: var(--tertiary-color);
+    background: #b11a1a;
 }
 
 .formCadastro {
@@ -68,9 +68,9 @@ form button{
 }
 .formCadastro h1{
     font-size: 2rem;
-    color: var(--primary-color);
+    color: #b11a1a;
 }
 
 .containerCadastro .rotaLogin{
-    color: var(--primary-color);
+    color: #b11a1a;
 }

@@ -48,7 +48,6 @@ export class CadastroComponent implements OnInit {
       var senha = this.formsCadastro.value.password;
       this.userFormat.name = this.formsCadastro.value.name;
       this.userFormat.email = this.formsCadastro.value.email;
-      this.userFormat.nameFarm = this.formsCadastro.value.nameFarm;
 
       this.service.cadastrar(this.userFormat);
 

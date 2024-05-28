@@ -13,7 +13,7 @@
 }
 .menu .logo a {
   font-size: 1.5rem;
-  color: var(--backound-color);
+  color: #f0f0f0;
   text-decoration: none;
   display: flex;
   margin: 0;
@@ -32,14 +32,14 @@
   gap: 2rem;
 }
 .menu .links a {
-  color: var(--backound-color);
+  color: #f0f0f0;
   text-decoration: none;
   font-weight: 500;
 }
 .button {
   background-color: transparent;
-  color: var(--backound-color);
-  border: 1px solid var(--backound-color);
+  color: #f0f0f0;
+  border: 1px solid #f0f0f0;
   padding: 10px 20px;
   border-radius: 2px;
   cursor: pointer;
